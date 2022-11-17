@@ -1,0 +1,96 @@
+﻿<UserControl x:Class="CurrencyPL.HistoryHeader"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:m="http://materialdesigninxaml.net/winfx/xaml/themes" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:local="clr-namespace:CurrencyPL"
+             mc:Ignorable="d" 
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             Background="{DynamicResource MaterialDesignPaper}"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             d:DesignHeight="160" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <Style TargetType="Viewbox">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Stretch" Value="Uniform"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+
+        <Style TargetType="DatePicker" BasedOn="{StaticResource  MaterialDesignOutlinedDatePicker}">
+            <Setter Property="Margin" Value="10,0,10,0"/>
+            <Setter Property="DisplayDateStart" Value="2004/01/01"/>
+            <Setter Property="DisplayDateEnd" Value="{x:Static sys:DateTime.Now}"/>
+        </Style>
+        <Style TargetType="ComboBoxItem" x:Key="combo1" BasedOn="{StaticResource MaterialDesignComboBoxItemSelectedCollapsedStyle}">
+            <Setter Property="FontSize" Value="12.8"/>
+        </Style>
+        
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition Width="0.98*" />
+            <ColumnDefinition Width="0.98*" />
+            <ColumnDefinition Width="0.98*" />
+            <ColumnDefinition Width="0.6*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="0.7*" />
+            <ColumnDefinition Width="0.2*"/>
+        </Grid.ColumnDefinitions>
+
+        <DatePicker Grid.Column="1" m:HintAssist.Hint="Start Date" 
+                    SelectedDate ="{Binding StartDate, Mode=TwoWay}"/>
+
+        <DatePicker Grid.Column="2" m:HintAssist.Hint="End Date" 
+                     SelectedDate ="{Binding EndDate, Mode=TwoWay}"/>
+        
+        <Viewbox Grid.Column="3" >
+            <ComboBox MinWidth="150"  m:HintAssist.HelperText="Currency source" m:TextFieldAssist.HasClearButton="False"
+                  Text ="{Binding CurrencyType, Mode=TwoWay}" IsReadOnly="True" ItemContainerStyle="{StaticResource combo1}" >
+                <ComboBoxItem Content="USD: United States Dollar"/>
+                <ComboBoxItem Content="EUR: Euro"/>
+                <ComboBoxItem Content="ILS: Israeli New Sheqel"/>
+                <ComboBoxItem Content="GBP: British Pound Sterling"/>
+                <ComboBoxItem Content="AUD: Australian Dollar"/>
+            </ComboBox>
+        </Viewbox>
+        
+        <Viewbox Grid.Column="4" >
+            <ComboBox MinWidth="85" m:HintAssist.HelperText="Display method" m:TextFieldAssist.HasClearButton="False"
+                     Text ="{Binding DisplayMethod, Mode=TwoWay}" IsReadOnly="True" ItemContainerStyle="{StaticResource combo1}">
+                <ComboBoxItem Content="Yearly"/>
+                <ComboBoxItem Content="Monthly" />
+                <ComboBoxItem Content="Daily"/>
+            </ComboBox>
+        </Viewbox>
+
+        <Viewbox Grid.Column="5">
+            <Button Style="{StaticResource RaisedButton}" Content="Show Data" Command="{Binding ShowChartCommand}" />
+        </Viewbox>
+
+        <Viewbox Grid.Column="6">
+            <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                <Label Content="Select Display Method"  FontSize="12" FontWeight="SemiBold" />
+                <RadioButton  Margin="0,0,0,10" GroupName="Select Method" Content="Line plot"
+                              Command="{Binding SelectDisplayMethodCommand}" CommandParameter ="Line"/>
+
+                <RadioButton  IsChecked="True" GroupName="Select Method" Content="Histogram plot"
+                              Command="{Binding SelectDisplayMethodCommand }" CommandParameter ="Histogram"/>
+
+                <RadioButton  Margin="0,10,0,0" GroupName="Select Method" Content="Data Grid" 
+                              Command="{Binding SelectDisplayMethodCommand }" CommandParameter ="DataGrid"/>
+            </StackPanel>
+        </Viewbox>
+        
+        
+        
+    </Grid>
+</UserControl>

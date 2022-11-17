@@ -1,0 +1,50 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:chart="clr-namespace:Syncfusion.UI.Xaml.Charts;assembly=Syncfusion.SfChart.WPF"
+             xmlns:local="clr-namespace:CurrencyPL"
+             xmlns:m="http://materialdesigninxaml.net/winfx/xaml/themes" 
+             x:Class="CurrencyPL.HistoryHistogramDisplay"
+             mc:Ignorable="d" 
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             Background="{DynamicResource MaterialDesignPaper}"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <chart:SfChart Header="History Record" Style="{StaticResource ChartStyle}" >
+            
+            <chart:SfChart.PrimaryAxis>
+                <chart:CategoryAxis LabelRotationAngle="90" FontSize="10"/>
+            </chart:SfChart.PrimaryAxis>
+            
+            <chart:SfChart.SecondaryAxis>
+                <chart:NumericalAxis RangePadding="AppendInterval"  />
+            </chart:SfChart.SecondaryAxis>
+
+            <chart:SfChart.Legend>
+                <chart:ChartLegend />
+            </chart:SfChart.Legend>
+
+            <chart:FastColumnBitmapSeries  Label="ILS" ShowTooltip="True" ItemsSource="{Binding Histories}" XBindingPath="Date" YBindingPath="ILSValue"/>
+
+            <chart:FastColumnBitmapSeries Label="AUD" ShowTooltip="True"  ItemsSource="{Binding Histories}" XBindingPath="Date" YBindingPath="AUDValue"/>
+
+            <chart:FastColumnBitmapSeries Label="USD" ShowTooltip="True" ItemsSource="{Binding Histories}" XBindingPath="Date" YBindingPath="USDValue"/>
+
+            <chart:FastColumnBitmapSeries  Label="EUR"  ShowTooltip="True"  ItemsSource="{Binding Histories}" XBindingPath="Date" YBindingPath="EURValue"/>
+
+            <chart:FastColumnBitmapSeries Label="GBP"  ShowTooltip="True" ItemsSource="{Binding Histories}" XBindingPath="Date" YBindingPath="GBPValue"/>
+
+            <chart:SfChart.Behaviors >
+                <chart:ChartZoomPanBehavior  MaximumZoomLevel="10"  EnableZoomingToolBar="True"  />
+            </chart:SfChart.Behaviors>
+            
+        </chart:SfChart>
+    </Grid>
+</UserControl>

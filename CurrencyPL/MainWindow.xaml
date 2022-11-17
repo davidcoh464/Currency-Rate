@@ -1,0 +1,126 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CurrencyPL" 
+        x:Class="CurrencyPL.MainWindow"
+        xmlns:m="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Currency App"  MinHeight="600" MinWidth="1100" SizeToContent="Manual" WindowStartupLocation="CenterScreen"
+         Icon= "\Icons\history\history2.jpg">
+
+    <Window.DataContext>
+        <local:MainViewModel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <Style TargetType="Label" x:Key="labelStyle">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Margin" Value="5,5,0,5"/>
+        </Style>
+        <Style TargetType="Image" x:Key="imageStyle">
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="Stretch" Value="Fill"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+        </Style>
+        <Style TargetType="DockPanel" x:Key="docStyle">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Width" Value="190"/>
+            <Setter Property="Height" Value="80"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="6*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.Resources>
+            <DataTemplate DataType="{x:Type local:HistoryViewModel}">
+                <local:HistorySelectDisplayMethod/>
+            </DataTemplate>
+
+            <local:BoolToBackgroundConverter x:Key="BackgroundConverter"/>
+
+            <DataTemplate DataType="{x:Type local:LatestRateViewModel}">
+                <local:LatestRateSelectDisplayMethod/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type local:LiveCurrencyViewModel}">
+                <local:LiveCurrencyNRT/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type local:LatestRateGraphViewModel}">
+                <local:LatestRateHistogram/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type local:ConvertViewModel}">
+                <local:ConvertControl/>
+            </DataTemplate>
+
+        </Grid.Resources>
+
+        <Border Grid.Column="1" BorderThickness="3" BorderBrush="WhiteSmoke" Margin="5,5,5,5">
+            <Border Margin="10,10,10,10" BorderBrush="LightBlue" BorderThickness="10">
+                <ContentControl Content="{Binding Navigation, UpdateSourceTrigger=PropertyChanged}" />
+            </Border>
+        </Border>
+
+
+        <Expander Header="Menu" FontWeight="DemiBold" m:ExpanderAssist.HorizontalHeaderPadding="10" m:ExpanderAssist.HeaderFontSize="15" Background="WhiteSmoke" >
+            <Viewbox Margin="2,0,2,0" Stretch="Fill">
+                <Border BorderBrush="AliceBlue" BorderThickness="2">
+                    <StackPanel Background="LightBlue"  HorizontalAlignment="Left">
+
+                        <Button Margin="2,20,2,10" Style="{DynamicResource Menu}" Command="{Binding MainVMCommand}" CommandParameter="Convert"
+                            HorizontalAlignment="Left" Background="{Binding Path=PressedConvert, Converter= {StaticResource BackgroundConverter},Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" >
+                            <DockPanel Style="{StaticResource docStyle}" >
+                                <Image  Source="\Icons\convert0.png" Style="{StaticResource imageStyle}"/>
+                                <Label Content="Currency&#xD;&#xA;Converter" Style="{StaticResource labelStyle}"  />
+                            </DockPanel>
+                        </Button>
+
+                        <Button Margin="2,20,2,0" Style="{DynamicResource Menu}" Command="{Binding MainVMCommand}" CommandParameter="Live" 
+                            HorizontalAlignment="Left" Background="{Binding Path=PressedLive, Converter= {StaticResource BackgroundConverter},Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" >
+                            <DockPanel  Style="{StaticResource docStyle}" >
+                                <Image  Source="\Icons\NRT0.jpg" Style="{StaticResource imageStyle}"/>
+                                <Label Content="Live NRT" Style="{StaticResource labelStyle}" />
+                            </DockPanel>
+                        </Button>
+                        
+                        <Button  Margin="2,20,2,0" Style="{DynamicResource Menu}" Command="{Binding MainVMCommand}" CommandParameter="History" 
+                            HorizontalAlignment="Left" Background="{Binding Path=PressedHistory, Converter= {StaticResource BackgroundConverter},Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" >
+
+                            <DockPanel Style="{StaticResource docStyle}">
+                                <Image Source="\Icons\history\history5.jpg" Style="{StaticResource imageStyle}"/>
+                                <Label Content="History" Style="{StaticResource labelStyle}" />
+                            </DockPanel>
+                        </Button>
+
+                        <Button  Margin="2,20,2,0" Style="{DynamicResource Menu}" Command="{Binding MainVMCommand}" CommandParameter="Latest Rate"
+                             HorizontalAlignment="Left" Background="{Binding Path=PressedRate, Converter= {StaticResource BackgroundConverter},Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" >
+                            <DockPanel Style="{StaticResource docStyle}">
+                                <Image  Source="\Icons\rate\rate8.jpg" Style="{StaticResource imageStyle}"/>
+                                <Label Content="Exchange&#xD;&#xA;   Rate" Style="{StaticResource labelStyle}" />
+                            </DockPanel>
+                        </Button>
+
+                        <Button Margin="2,20,2,0" Style="{DynamicResource Menu}" Command="{Binding MainVMCommand}" CommandParameter="Latest Rate Graph" 
+                            HorizontalAlignment="Left" Background="{Binding Path=PressedRateGraph, Converter= {StaticResource BackgroundConverter},Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" >
+                            <DockPanel  Style="{StaticResource docStyle}" >
+                                <Image  Source="\Icons\rate\rate4.jpg" Style="{StaticResource imageStyle}"/>
+                                <Label Content=" Exchange&#xD;&#xA;Rate Chart" Style="{StaticResource labelStyle}" />
+                            </DockPanel>
+                        </Button>
+
+                    </StackPanel>
+                </Border>
+            </Viewbox>
+        </Expander>
+    </Grid>
+</Window>

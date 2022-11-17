@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="CurrencyPL.HistorySelectDisplayMethod"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CurrencyPL"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+        <Grid.Resources>
+            <local:BoolToVisibilityConverter x:Key="VisabiltyConvrted"/>
+        </Grid.Resources>
+        <local:HistoryHeader Grid.Row="0"/>
+        <local:HistoryHistogramDisplay Grid.Row="1" Grid.ColumnSpan="2" Visibility="{Binding Path=DisplayHistogram, Converter= {StaticResource VisabiltyConvrted}}"  />
+        <local:HIstoryPlotDisplay Grid.Row="1" Grid.ColumnSpan="2" Visibility="{Binding Path=DisplayLinePlot, Converter= {StaticResource VisabiltyConvrted}}" />
+        <local:HistoryDataGridDisplay Grid.Row="1" Grid.ColumnSpan="2" Visibility="{Binding Path=DisplayDataGrid, Converter= {StaticResource VisabiltyConvrted}}"/>
+    </Grid>
+</UserControl>

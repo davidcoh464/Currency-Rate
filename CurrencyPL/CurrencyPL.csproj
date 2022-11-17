@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6867CBFA-3AB0-4759-8348-F55800C402E7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>CurrencyPL</RootNamespace>
+    <AssemblyName>CurrencyPL</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=2.0.9.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.2.0.9\lib\net462\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=4.6.1.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.4.6.1\lib\net462\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="ReachFramework" />
+    <Reference Include="Syncfusion.Data.WPF, Version=20.3460.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Data.WPF.20.3.0.57\lib\net46\Syncfusion.Data.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Licensing, Version=20.3460.0.57, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Licensing.20.3.0.57\lib\net46\Syncfusion.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfChart.WPF, Version=20.3460.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.SfChart.WPF.20.3.0.57\lib\net46\Syncfusion.SfChart.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfGrid.WPF, Version=20.3460.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.SfGrid.WPF.20.3.0.57\lib\net46\Syncfusion.SfGrid.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Shared.WPF, Version=20.3460.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Shared.WPF.20.3.0.57\lib\net46\Syncfusion.Shared.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Converters\BoolToBackgroundConverter.cs" />
+    <Compile Include="Model\ConvertModel.cs" />
+    <Compile Include="Model\LatestRateModel.cs" />
+    <Compile Include="Model\LiveCurrencyModel.cs" />
+    <Compile Include="MyUserControls\ConvertControl\ConvertControl.xaml.cs">
+      <DependentUpon>ConvertControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyUserControls\LatestRateControls\LatestRateSelectDisplayMethod.xaml.cs">
+      <DependentUpon>LatestRateSelectDisplayMethod.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyUserControls\LatestRateControls\LatestRateHeader.xaml.cs">
+      <DependentUpon>LatestRateHeader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyUserControls\LatestRateControls\LatestRateListOfCurrency.xaml.cs">
+      <DependentUpon>LatestRateListOfCurrency.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyUserControls\LiveNRTControl\LiveCurrencyNRT.xaml.cs">
+      <DependentUpon>LiveCurrencyNRT.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\ConvertViewModel.cs" />
+    <Compile Include="ViewModel\LatestRateGraphViewModel.cs" />
+    <Compile Include="ViewModel\LatestRateViewModel.cs" />
+    <Compile Include="ViewModel\LiveCurrencyViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Command\CurrencyCommand.cs" />
+    <Compile Include="Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="MyUserControls\HistoryConrols\HistoryDataGridDisplay.xaml.cs">
+      <DependentUpon>HistoryDataGridDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyUserControls\HistoryConrols\HistoryHistogramDisplay.xaml.cs">
+      <DependentUpon>HistoryHistogramDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyUserControls\HistoryConrols\HistoryHeader.xaml.cs">
+      <DependentUpon>HistoryHeader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyUserControls\HistoryConrols\HIstoryPlotDisplay.xaml.cs">
+      <DependentUpon>HIstoryPlotDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyUserControls\HistoryConrols\HistorySelectDisplayMethod.xaml.cs">
+      <DependentUpon>HistorySelectDisplayMethod.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyUserControls\LatestRateGraphControls\LatestRateHistogram.xaml.cs">
+      <DependentUpon>LatestRateHistogram.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\HistoryViewModel.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="MyUserControls\ConvertControl\ConvertControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyUserControls\HistoryConrols\HistoryDataGridDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyUserControls\HistoryConrols\HistoryHistogramDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyUserControls\HistoryConrols\HistoryHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyUserControls\HistoryConrols\HIstoryPlotDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyUserControls\HistoryConrols\HistorySelectDisplayMethod.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyUserControls\LatestRateControls\LatestRateSelectDisplayMethod.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyUserControls\LatestRateControls\LatestRateHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyUserControls\LatestRateGraphControls\LatestRateHistogram.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyUserControls\LatestRateControls\LatestRateListOfCurrency.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyUserControls\LiveNRTControl\LiveCurrencyNRT.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\HistoryModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CurrencyBE\CurrencyBE.csproj">
+      <Project>{003DE960-70DB-40D7-A2BF-5A2F087E2309}</Project>
+      <Name>CurrencyBE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CurrencyBL\CurrencyBL.csproj">
+      <Project>{29D64279-0CDC-49C6-AAF7-1E7FB972B8D7}</Project>
+      <Name>CurrencyBL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\history\history0.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\history\history1.jpg" />
+    <Resource Include="Icons\history\history2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\history\history3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\history\history4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\history\history5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\history\history6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\rate\rate0.jpg" />
+    <Resource Include="Icons\rate\rate1.jpg" />
+    <Resource Include="Icons\rate\rate2.jpg" />
+    <Resource Include="Icons\rate\rate4.jpg" />
+    <Resource Include="Icons\rate\rate5.jpg" />
+    <Resource Include="Icons\rate\rate6.jpg" />
+    <Resource Include="Icons\rate\rate7.jpg" />
+    <Resource Include="Icons\rate\rate8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\rate\rate3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\NRT\NRT0.jpg" />
+    <Resource Include="Icons\NRT\NRT1.jpg" />
+    <Resource Include="Icons\NRT\NRT2.jpg" />
+    <Resource Include="Icons\NRT\NRT3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\history3.jpg" />
+    <Resource Include="Icons\NRT0.jpg" />
+    <Resource Include="Icons\rate8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\convert0.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MaterialDesignThemes.4.6.1\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.4.6.1\build\MaterialDesignThemes.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\MaterialDesignThemes.4.6.1\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.6.1\build\MaterialDesignThemes.targets')" />
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>
