@@ -12,7 +12,7 @@ User Controls, Converter, SQL-Servers, API- Request, JSON files.
 
 ![alt text](https://github.com/davidcoh464/Currency-Rate/blob/master/App%20images/Converter.png)
 
-## History Rate of 5 coins (USD: United States Dollar, EUR: Euro, ILS: Israeli New Sheqel, GBP: British Pound Sterling, AUD: Australian Dollar) in 3 diffrents view opentions: Histogram, Line plot , Data grid. You can choose the currency for comparison, start date (up to 2010) and end, annual or monthly or daily average.
+## History Rate of 5 coins (USD: United States Dollar, EUR: Euro, ILS: Israeli New Sheqel, GBP: British Pound Sterling, AUD: Australian Dollar) in 3 diffrents view opentions: Histogram, Line plot , Data grid. The user can choose the currency to compare, start (up to 2010) and end date, annual or monthly or daily average.
 
 ### History in histogram view:
 ![alt text](https://github.com/davidcoh464/Currency-Rate/blob/master/App%20images/History%20histogram.png)
